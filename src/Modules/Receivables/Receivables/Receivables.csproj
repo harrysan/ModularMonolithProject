@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Dtos\**" />
+    <Compile Remove="EventHandlers\**" />
+    <Compile Remove="Exceptions\**" />
+    <Compile Remove="Features\**" />
+    <Compile Remove="Models\**" />
+    <EmbeddedResource Remove="Dtos\**" />
+    <EmbeddedResource Remove="EventHandlers\**" />
+    <EmbeddedResource Remove="Exceptions\**" />
+    <EmbeddedResource Remove="Features\**" />
+    <EmbeddedResource Remove="Models\**" />
+    <None Remove="Dtos\**" />
+    <None Remove="EventHandlers\**" />
+    <None Remove="Exceptions\**" />
+    <None Remove="Features\**" />
+    <None Remove="Models\**" />
+  </ItemGroup>
+
+</Project>
