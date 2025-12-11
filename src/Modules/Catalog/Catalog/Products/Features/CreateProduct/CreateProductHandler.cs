@@ -5,7 +5,19 @@ public record CreateProductCommand(ProductDto Product)
 
 public record CreateProductResult(Guid Id);
 
-internal class CreateProductHandler(CatalogDbContext dbContext)
+public class CreateProductCommandValidator : AbstractValidator<CreateProductCommand>
+{
+    public CreateProductCommandValidator()
+    {
+        RuleFor(x => x.Product.Name).NotEmpty().WithMessage("Name is required");
+        RuleFor(x => x.Product.Category).NotEmpty().WithMessage("Category is required");
+        RuleFor(x => x.Product.ImageFile).NotEmpty().WithMessage("ImageFile is required");
+        RuleFor(x => x.Product.Price).GreaterThan(0).WithMessage("Price must be greater than 0");
+    }
+}
+
+internal class CreateProductHandler
+    (CatalogDbContext dbContext)
         : ICommandHandler<CreateProductCommand, CreateProductResult>
 {
     public async Task<CreateProductResult> Handle(CreateProductCommand command, CancellationToken cancellationToken)
@@ -13,6 +25,9 @@ internal class CreateProductHandler(CatalogDbContext dbContext)
         //create Product entity from command object
         //save to database
         //return result
+
+        // Logging Part => move to Logging Behavior
+        //logger.LogInformation("CreateProductCommandHandler.Handle called with {@Command}");
 
         var product = CreateNewProduct(command.Product);
 

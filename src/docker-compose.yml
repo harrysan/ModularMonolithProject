@@ -13,5 +13,20 @@ services:
     volumes:
       - postgres_eshopdb:/var/lib/postgresql/data
 
+  seq:
+    image: datalust/seq:latest
+    container_name: seq
+    environment: 
+      - ACCEPT_EULA=Y
+      # - SEQ_FIRSTRUN_ADMINPASSWORD=admin123
+      # - SEQ_FIRSTRUN_ADMINEMAIL=admin@example.com    optional, helpful for notifications
+      - SEQ_FIRSTRUN_NOAUTHENTICATION=true         # opsi (tidak disarankan) untuk non-auth
+    restart: always
+    ports:
+      - "5341:5341"
+      - "9091:80"
+    volumes:
+      - ./seq-data:/var/lib/seq
+
 volumes:
   postgres_eshopdb:
