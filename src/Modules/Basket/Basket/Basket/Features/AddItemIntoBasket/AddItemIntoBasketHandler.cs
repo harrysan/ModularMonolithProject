@@ -22,7 +22,7 @@ namespace Basket.Basket.Features.AddItemIntoBasket
         {
             // Add shopping cart item into shopping cart
             var shoppingCart = await dbContext.ShoppingCarts
-                                .Include(x => x.Id)
+                                .Include(x => x.Items)
                                 .SingleOrDefaultAsync(x => x.UserName == command.UserName, cancellationToken);
 
             //TODO: Before AddItem into SC, we should call Catalog Module GetProductById method

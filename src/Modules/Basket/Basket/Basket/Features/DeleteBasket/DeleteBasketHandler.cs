@@ -13,7 +13,7 @@
             //save to database
             //return result
 
-            var basket = await dbContext.ShoppingCarts.SingleOrDefaultAsync(x => x.UserName == commnad.UserName, cancellationToken);
+            var basket = await dbContext.ShoppingCarts.SingleOrDefaultAsync(x => x.UserName == command.UserName, cancellationToken);
 
             if (basket is null) 
             {

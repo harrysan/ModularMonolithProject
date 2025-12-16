@@ -15,14 +15,16 @@ namespace Catalog
             // Api Endpoint services
 
             // Application Use Case services
-            services.AddMediatR(config =>
-            {
-                config.RegisterServicesFromAssemblies(Assembly.GetExecutingAssembly());
-                config.AddOpenBehavior(typeof(ValidationBehavior<,>));
-                config.AddOpenBehavior(typeof(LoggingBehavior<,>));
-            });
 
-            services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
+            // MediatR Registration (moved to Program.cs)
+            //services.AddMediatR(config =>
+            //{
+            //    config.RegisterServicesFromAssemblies(Assembly.GetExecutingAssembly());
+            //    config.AddOpenBehavior(typeof(ValidationBehavior<,>));
+            //    config.AddOpenBehavior(typeof(LoggingBehavior<,>));
+            //});
+
+            //services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
 
             // Data - Infrastructure services
             var connectionString = configuration.GetConnectionString("Database");

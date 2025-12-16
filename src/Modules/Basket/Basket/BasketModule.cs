@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore.Diagnostics;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Shared.Behaviors;
 using Shared.Data;
 using Shared.Data.Interceptors;
 
@@ -17,6 +18,7 @@ namespace Basket
             // 2. Application Use Case services
 
             // 3. Data - Infrastructure services
+
             var connectionString = configuration.GetConnectionString("Database");
 
             services.AddScoped<ISaveChangesInterceptor, AuditableEntityInterceptor>();

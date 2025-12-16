@@ -24,6 +24,7 @@
             var shoppingCart = CreateNewBasket(command.ShoppingCart);
 
             dbContext.ShoppingCarts.Add(shoppingCart);
+            await dbContext.SaveChangesAsync(cancellationToken);
 
             return new CreateBasketResult(shoppingCart.Id);
         }
