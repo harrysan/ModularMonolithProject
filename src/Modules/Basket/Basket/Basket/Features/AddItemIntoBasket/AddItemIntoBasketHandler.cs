@@ -15,23 +15,25 @@ namespace Basket.Basket.Features.AddItemIntoBasket
         }
     }
 
-    internal class AddItemIntoBasketHandler(BasketDbContext dbContext)
+    internal class AddItemIntoBasketHandler(IBasketRepository repository)
         : ICommandHandler<AddItemIntoBasketCommand, AddItemIntoBasketResult>
     {
         public async Task<AddItemIntoBasketResult> Handle(AddItemIntoBasketCommand command, CancellationToken cancellationToken)
         {
             // Add shopping cart item into shopping cart
-            var shoppingCart = await dbContext.ShoppingCarts
-                                .Include(x => x.Items)
-                                .SingleOrDefaultAsync(x => x.UserName == command.UserName, cancellationToken);
+            //var shoppingCart = await dbContext.ShoppingCarts
+            //                    .Include(x => x.Items)
+            //                    .SingleOrDefaultAsync(x => x.UserName == command.UserName, cancellationToken);
 
             //TODO: Before AddItem into SC, we should call Catalog Module GetProductById method
             // Get latest product information and set Price and ProductName when adding item into SC
 
-            if (shoppingCart is null)
-            {
-                throw new BasketNotFoundException(command.UserName);
-            }
+            //if (shoppingCart is null)
+            //{
+            //    throw new BasketNotFoundException(command.UserName);
+            //}
+
+            var shoppingCart = await repository.GetBasket(command.UserName, false, cancellationToken);
 
             shoppingCart.AddItem(
                     command.ShoppingCartItem.ProductId,
@@ -42,7 +44,9 @@ namespace Basket.Basket.Features.AddItemIntoBasket
             //command.ShoppingCartItem.Price,
             //command.ShoppingCartItem.ProductName);
 
-            await dbContext.SaveChangesAsync(cancellationToken);
+            //await dbContext.SaveChangesAsync(cancellationToken);
+
+            await repository.SaveChangesAsync(command.UserName, cancellationToken);
 
             return new AddItemIntoBasketResult(shoppingCart.Id);
         }

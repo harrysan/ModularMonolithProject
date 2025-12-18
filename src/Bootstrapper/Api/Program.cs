@@ -31,6 +31,11 @@ builder.Services
         basketAssembly
     );
 
+builder.Services.AddStackExchangeRedisCache(opt =>
+    {
+        opt.Configuration = builder.Configuration.GetConnectionString("Redis");
+    }); 
+
 //builder.Services.AddMediatR(config =>
 //{
 //    config.RegisterServicesFromAssemblies(

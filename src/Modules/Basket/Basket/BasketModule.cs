@@ -1,8 +1,8 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using Basket.Data.Repository;
 using Microsoft.EntityFrameworkCore.Diagnostics;
+using Microsoft.Extensions.Caching.Distributed;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Shared.Behaviors;
 using Shared.Data;
 using Shared.Data.Interceptors;
 
@@ -16,9 +16,19 @@ namespace Basket
             // 1. Api Endpoint services
 
             // 2. Application Use Case services
+            services.AddScoped<IBasketRepository, BasketRepository>();
+            services.Decorate<IBasketRepository, CacheBasketRepository>();
+
+            // Manual Added without Scrutor
+            //services.AddScoped<IBasketRepository>(
+            //    provider =>
+            //        {
+            //            var basketRepository = provider.GetRequiredService<IBasketRepository>();
+            //            return new CacheBasketRepository(basketRepository, provider.GetRequiredService<IDistributedCache>());
+            //        }
+            //    );
 
             // 3. Data - Infrastructure services
-
             var connectionString = configuration.GetConnectionString("Database");
 
             services.AddScoped<ISaveChangesInterceptor, AuditableEntityInterceptor>();
