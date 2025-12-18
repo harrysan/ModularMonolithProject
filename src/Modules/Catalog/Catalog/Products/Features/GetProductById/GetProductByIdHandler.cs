@@ -1,12 +1,8 @@
-﻿
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
-
-namespace Catalog.Products.Features.GetProductById
+﻿namespace Catalog.Products.Features.GetProductById
 {
-    public record GetProductByIdQuery(Guid Id)
-        : IQuery<GetProductByIdResult>;
-    public record GetProductByIdResult(ProductDto Product);
+    //public record GetProductByIdQuery(Guid Id)
+    //    : IQuery<GetProductByIdResult>;
+    //public record GetProductByIdResult(ProductDto Product);
 
     internal class GetProductByIdHandler(CatalogDbContext dbContext)
         : IQueryHandler<GetProductByIdQuery, GetProductByIdResult>

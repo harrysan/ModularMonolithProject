@@ -35,6 +35,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Receivables", "Modules\Rece
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{6A6C213A-3BC0-480E-BA23-703145B95D05}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Catalog.Contracts", "Modules\Catalog\Catalog.Contracts\Catalog.Contracts.csproj", "{8D5B68FB-DD5B-4B8B-9EC0-83784E09F63E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared.Contracts", "Shared\Shared.Contracts\Shared.Contracts.csproj", "{DF6266C3-EFA1-498D-85A4-F55C4E0CFE19}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -73,6 +77,14 @@ Global
 		{6A6C213A-3BC0-480E-BA23-703145B95D05}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6A6C213A-3BC0-480E-BA23-703145B95D05}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6A6C213A-3BC0-480E-BA23-703145B95D05}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D5B68FB-DD5B-4B8B-9EC0-83784E09F63E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D5B68FB-DD5B-4B8B-9EC0-83784E09F63E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D5B68FB-DD5B-4B8B-9EC0-83784E09F63E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D5B68FB-DD5B-4B8B-9EC0-83784E09F63E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF6266C3-EFA1-498D-85A4-F55C4E0CFE19}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF6266C3-EFA1-498D-85A4-F55C4E0CFE19}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF6266C3-EFA1-498D-85A4-F55C4E0CFE19}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF6266C3-EFA1-498D-85A4-F55C4E0CFE19}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -90,5 +102,7 @@ Global
 		{A5336F44-A7E3-4C74-9AD8-09CDB9FC41CE} = {95CFF3CB-92A0-46DD-A675-7AF3D5135170}
 		{E076073A-0D97-4BE9-9EB7-0E40DD28E517} = {23D94AC2-48D2-40DC-9499-FE9CF1D1B6AD}
 		{2648CA0D-9734-49D8-B2C4-482ED87288B5} = {E076073A-0D97-4BE9-9EB7-0E40DD28E517}
+		{8D5B68FB-DD5B-4B8B-9EC0-83784E09F63E} = {45C08024-4306-4A31-AAE4-331678D94D14}
+		{DF6266C3-EFA1-498D-85A4-F55C4E0CFE19} = {95CFF3CB-92A0-46DD-A675-7AF3D5135170}
 	EndGlobalSection
 EndGlobal
