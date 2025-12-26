@@ -39,6 +39,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Catalog.Contracts", "Module
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared.Contracts", "Shared\Shared.Contracts\Shared.Contracts.csproj", "{DF6266C3-EFA1-498D-85A4-F55C4E0CFE19}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared.Messaging", "Shared\Shared.Messaging\Shared.Messaging.csproj", "{BAF5E4CC-E4FE-406F-B70B-07FF02899DF4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -85,6 +87,10 @@ Global
 		{DF6266C3-EFA1-498D-85A4-F55C4E0CFE19}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DF6266C3-EFA1-498D-85A4-F55C4E0CFE19}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DF6266C3-EFA1-498D-85A4-F55C4E0CFE19}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BAF5E4CC-E4FE-406F-B70B-07FF02899DF4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BAF5E4CC-E4FE-406F-B70B-07FF02899DF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BAF5E4CC-E4FE-406F-B70B-07FF02899DF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BAF5E4CC-E4FE-406F-B70B-07FF02899DF4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -104,5 +110,6 @@ Global
 		{2648CA0D-9734-49D8-B2C4-482ED87288B5} = {E076073A-0D97-4BE9-9EB7-0E40DD28E517}
 		{8D5B68FB-DD5B-4B8B-9EC0-83784E09F63E} = {45C08024-4306-4A31-AAE4-331678D94D14}
 		{DF6266C3-EFA1-498D-85A4-F55C4E0CFE19} = {95CFF3CB-92A0-46DD-A675-7AF3D5135170}
+		{BAF5E4CC-E4FE-406F-B70B-07FF02899DF4} = {95CFF3CB-92A0-46DD-A675-7AF3D5135170}
 	EndGlobalSection
 EndGlobal
