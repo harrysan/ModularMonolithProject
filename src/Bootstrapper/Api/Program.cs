@@ -40,7 +40,8 @@ builder.Services.AddStackExchangeRedisCache(opt =>
     });
 
 builder.Services
-    .AddMassTransitWithAssemblies(builder.Configuration, catalogAssembly, basketAssembly);
+    .AddMassTransitWithAssemblies
+    (builder.Configuration, catalogAssembly, basketAssembly, orderingAssembly);
 
 builder.Services.AddKeycloakWebApiAuthentication(builder.Configuration);
 builder.Services.AddAuthorization();
@@ -68,12 +69,21 @@ builder.Services
 builder.Services
     .AddExceptionHandler<CustomExceptionHandler>();
 
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+
 // -----Service Section End--------- //
 
 // -----Build Section Start--------- //
 var app = builder.Build();
 
 // Configure the HTTP Request Pipeline.
+
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}
 
 app.MapCarter();
 app.UseSerilogRequestLogging();

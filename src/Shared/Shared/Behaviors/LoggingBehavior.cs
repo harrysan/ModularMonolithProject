@@ -22,7 +22,7 @@ namespace Shared.Behaviors
 
             timer.Stop();
             var timeTaken = timer.Elapsed;
-            if (timeTaken.Seconds > 3) // if the request is greater than 3 seconds, then log the warnings
+            if (timeTaken.Seconds > 60) // if the request is greater than 3 seconds, then log the warnings
                 logger.LogWarning("[PERFORMANCE] The request {Request} took {TimeTaken} seconds.",
                     typeof(TRequest).Name, timeTaken.Seconds);
 

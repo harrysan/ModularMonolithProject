@@ -27,13 +27,13 @@ namespace Shared.Data.Interceptors
             {
                 if (entry.State == EntityState.Added)
                 {
-                    entry.Entity.CreatedBy = "harry";
+                    entry.Entity.CreatedBy = "sysuser";
                     entry.Entity.CreatedAt = DateTime.UtcNow;
                 }
 
                 if (entry.State == EntityState.Added || entry.State == EntityState.Modified || entry.HasChangedOwnedEntities())
                 {
-                    entry.Entity.LastModifiedBy = "harry";
+                    entry.Entity.LastModifiedBy = "sysuser";
                     entry.Entity.LastModified = DateTime.UtcNow;
                 }
             }
@@ -47,5 +47,8 @@ public static class Extensions
         entry.References.Any(r =>
             r.TargetEntry != null &&
             r.TargetEntry.Metadata.IsOwned() &&
-            (r.TargetEntry.State == EntityState.Added || r.TargetEntry.State == EntityState.Modified));
+            (
+                r.TargetEntry.State == EntityState.Added || r.TargetEntry.State == EntityState.Modified
+            )
+        );
 }
